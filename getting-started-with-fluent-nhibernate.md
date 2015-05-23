@@ -1,5 +1,9 @@
 #Getting started with Fluent NHibernate
 
+##Introduction
+
+This article is intended to help setup Fluent NHibernate for the first time.
+
 ##Installation
 
 Install Fluent NHibernate from NuGet
@@ -31,9 +35,6 @@ Add you connection string to your app.config or web.config.
 	...
 	</configuration>
 
-
-
-
 Inside this class add a method to retrieve your connection string.
 
     private static MsSqlConfiguration GetSqlConfiguration(string databaseConnectionStringKey)
@@ -45,6 +46,8 @@ Inside this class add a method to retrieve your connection string.
 ###Configuration
 
 Build your configuration.
+
+If you are setting up Fluent Nhibernate on a existing project you may need to add a [DefaultAutomappingConfiguration](../advanced-fluent-nhibernate-automapping-configuration.md) to avoid a FluentNHibernate.Visitors.ValidationException.
 
     private static Configuration BuildConfiguration()
     {
@@ -129,7 +132,7 @@ The completed database context should now look as follows.
 
 ##Your first Class and Table
 
-Add a new class to use with Fluent NHibernate. The virtual key word is required by NHibernate on properties.
+In a new empty project, add a new class to use with Fluent NHibernate. The virtual key word is required by NHibernate on properties.
 
 	namespace Demo.Core.Models
 	{
@@ -211,4 +214,11 @@ And some code to call the repository.
 	        }
 	    }
 	}
+
+##Closing
+
+This article is intended to get you up and running as quickly as possible. 
+
+If you wish to add classes that you do not wish to automap with Fluent Nhibernate to the new project containing the Person class, you will need to add a [DefaultAutomappingConfiguration](../advanced-fluent-nhibernate-automapping-configuration.md) to avoid a FluentNHibernate.Visitors.ValidationException.
+
 
