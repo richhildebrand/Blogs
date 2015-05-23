@@ -258,6 +258,6 @@ And some code to call the repository.
 
 This article is intended to get you up and running as quickly as possible. 
 
-If you wish to add classes that you do not wish to automap with Fluent Nhibernate to the new project containing the Person class, you will need to add a [DefaultAutomappingConfiguration](../advanced-fluent-nhibernate-automapping-configuration.md) to avoid a FluentNHibernate.Visitors.ValidationException.
+If you wish to add classes that you do not want to automap with Fluent Nhibernate to the new project containing the Person class, you will need to add a [DefaultAutomappingConfiguration](../advanced-fluent-nhibernate-automapping-configuration.md) to avoid a FluentNHibernate.Visitors.ValidationException.
 
 
