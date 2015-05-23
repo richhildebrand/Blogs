@@ -22,7 +22,7 @@ Now add a new class to use as your NHibernate database context.
 	    }
 	}
 	
-[code]
+[/code]
 	
 
 ### Connection String
@@ -40,7 +40,7 @@ Add you connection string to your app.config or web.config.
 	...
 	</configuration>
 	
-[code]
+[/code]
 
 Inside this class add a method to retrieve your connection string.
 
@@ -52,7 +52,7 @@ Inside this class add a method to retrieve your connection string.
             .ConnectionString(c => c.FromConnectionStringWithKey(databaseConnectionStringKey));
     }
 	
-[code]
+[/code]
 
 ### Configuration
 
@@ -72,7 +72,7 @@ If you are setting up Fluent Nhibernate on a existing project you may need to ad
             .BuildConfiguration();
     }
 	
-[code]
+[/code]
 
 ### Session Factory
 
@@ -97,7 +97,7 @@ Create your session factory.
         _sessionFactory = configuration.BuildSessionFactory();
     }
 	
-[code]
+[/code]
 
 ### The Complete Database Context
 
@@ -151,7 +151,7 @@ The completed database context should now look as follows.
 	    }
 	}
 	
-[code]
+[/code]
 
 ## Your first Class and Table
 
@@ -169,7 +169,7 @@ In a new empty project, add a new class to use with Fluent NHibernate. The virtu
 	    }
 	}
 	
-[code]
+[/code]
 
 User your migration script manager of choice to create the corresponding table in your database.
 
@@ -182,7 +182,7 @@ User your migration script manager of choice to create the corresponding table i
 		FirstName VARCHAR(255)
 	);
 	
-[code]
+[/code]
 
 
 ## Using the Database Context
@@ -215,7 +215,7 @@ The completed database context is now ready to be used. Lets add a repository to
 	    }
 	}
 	
-[code]
+[/code]
 
 And some code to call the repository.
 
@@ -252,7 +252,7 @@ And some code to call the repository.
 	    }
 	}
 	
-[code]
+[/code]
 
 ## Closing
 
