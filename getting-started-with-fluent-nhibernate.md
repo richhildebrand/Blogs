@@ -1,14 +1,14 @@
-##Introduction
+## Introduction
 
 This article is intended to help setup Fluent NHibernate for the first time.
 
-##Installation
+## Installation
 
 Install Fluent NHibernate from NuGet
 
 ![](../images/Adding-Fluent-Nhibernate-from-nuget.PNG)
 
-##Database Context
+## Database Context
 
 Now add a new class to use as your NHibernate database context.
 
@@ -25,7 +25,7 @@ Now add a new class to use as your NHibernate database context.
 [code]
 	
 
-###Connection String
+### Connection String
 
 Add you connection string to your app.config or web.config.
 
@@ -54,7 +54,7 @@ Inside this class add a method to retrieve your connection string.
 	
 [code]
 
-###Configuration
+### Configuration
 
 Build your configuration.
 
@@ -74,7 +74,7 @@ If you are setting up Fluent Nhibernate on a existing project you may need to ad
 	
 [code]
 
-###Session Factory
+### Session Factory
 
 Create your session factory.
 
@@ -99,7 +99,7 @@ Create your session factory.
 	
 [code]
 
-###The Complete Database Context
+### The Complete Database Context
 
 The completed database context should now look as follows.
 
@@ -153,7 +153,7 @@ The completed database context should now look as follows.
 	
 [code]
 
-##Your first Class and Table
+## Your first Class and Table
 
 In a new empty project, add a new class to use with Fluent NHibernate. The virtual key word is required by NHibernate on properties.
 
@@ -185,7 +185,7 @@ User your migration script manager of choice to create the corresponding table i
 [code]
 
 
-##Using the Database Context
+## Using the Database Context
 
 The completed database context is now ready to be used. Lets add a repository to save a new Person.
 
@@ -254,7 +254,7 @@ And some code to call the repository.
 	
 [code]
 
-##Closing
+## Closing
 
 This article is intended to get you up and running as quickly as possible. 
 
