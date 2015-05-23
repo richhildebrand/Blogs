@@ -1,5 +1,3 @@
-#Getting started with Fluent NHibernate
-
 ##Introduction
 
 This article is intended to help setup Fluent NHibernate for the first time.
@@ -14,6 +12,8 @@ Install Fluent NHibernate from NuGet
 
 Now add a new class to use as your NHibernate database context.
 
+[code language="csharp"]
+
 	namespace Demo.Infrastructure.Nhibernate
 	{
 	    public static class DatabaseContext
@@ -21,10 +21,15 @@ Now add a new class to use as your NHibernate database context.
 
 	    }
 	}
+	
+[code]
+	
 
 ###Connection String
 
 Add you connection string to your app.config or web.config.
+
+[code language="xml"]
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<configuration>
@@ -34,20 +39,28 @@ Add you connection string to your app.config or web.config.
 	  </connectionStrings>
 	...
 	</configuration>
+	
+[code]
 
 Inside this class add a method to retrieve your connection string.
+
+[code language="csharp"]
 
     private static MsSqlConfiguration GetSqlConfiguration(string databaseConnectionStringKey)
     {
         return MsSqlConfiguration.MsSql2012
             .ConnectionString(c => c.FromConnectionStringWithKey(databaseConnectionStringKey));
     }
+	
+[code]
 
 ###Configuration
 
 Build your configuration.
 
 If you are setting up Fluent Nhibernate on a existing project you may need to add a [DefaultAutomappingConfiguration](../advanced-fluent-nhibernate-automapping-configuration.md) to avoid a FluentNHibernate.Visitors.ValidationException.
+
+[code language="csharp"]
 
     private static Configuration BuildConfiguration()
     {
@@ -58,10 +71,14 @@ If you are setting up Fluent Nhibernate on a existing project you may need to ad
             )
             .BuildConfiguration();
     }
+	
+[code]
 
 ###Session Factory
 
 Create your session factory.
+
+[code language="csharp"]
 
     private static ISessionFactory _sessionFactory;
     public static ISessionFactory SessionFactory
@@ -79,10 +96,14 @@ Create your session factory.
         Configuration configuration = BuildConfiguration();
         _sessionFactory = configuration.BuildSessionFactory();
     }
+	
+[code]
 
 ###The Complete Database Context
 
 The completed database context should now look as follows.
+
+[code language="csharp"]
 
 	using Demo.Core.Models;
 	using FluentNHibernate.Automapping;
@@ -129,10 +150,14 @@ The completed database context should now look as follows.
 	        }
 	    }
 	}
+	
+[code]
 
 ##Your first Class and Table
 
 In a new empty project, add a new class to use with Fluent NHibernate. The virtual key word is required by NHibernate on properties.
+
+[code language="csharp"]
 
 	namespace Demo.Core.Models
 	{
@@ -143,20 +168,28 @@ In a new empty project, add a new class to use with Fluent NHibernate. The virtu
 	        public virtual string LastName { get; set; }
 	    }
 	}
+	
+[code]
 
 User your migration script manager of choice to create the corresponding table in your database.
+
+[code language="sql"]
 
 	CREATE TABLE Person
 	(
 		Id INT IDENTITY(1,1) PRIMARY KEY,
 		LastName VARCHAR(255),
 		FirstName VARCHAR(255)
-	)
+	);
+	
+[code]
 
 
 ##Using the Database Context
 
 The completed database context is now ready to be used. Lets add a repository to save a new Person.
+
+[code language="csharp"]
 
 	using Demo.Core.Models;
 	using NHibernate;
@@ -181,8 +214,12 @@ The completed database context is now ready to be used. Lets add a repository to
 	        }
 	    }
 	}
+	
+[code]
 
 And some code to call the repository.
+
+[code language="csharp"]
 
 	using Demo.Core.Models;
 	using Demo.Infrastructure.Nhibernate;
@@ -214,6 +251,8 @@ And some code to call the repository.
 	        }
 	    }
 	}
+	
+[code]
 
 ##Closing
 
