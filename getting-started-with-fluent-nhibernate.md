@@ -1,4 +1,4 @@
-#Setting up Fluent NHibernate
+#Getting started with Fluent NHibernate
 
 ##Installation
 
@@ -8,7 +8,7 @@ Install Fluent NHibernate from NuGet
 
 ##Database Context
 
-Now add a new class to use as your NHibernate datacontext.
+Now add a new class to use as your NHibernate database context.
 
 	namespace Demo.Infrastructure.Nhibernate
 	{
@@ -36,7 +36,7 @@ Add you connection string to your app.config or web.config.
 
 Inside this class add a method to retrieve your connection string.
 
-    public static MsSqlConfiguration GetSqlConfiguration(string databaseConnectionStringKey)
+    private static MsSqlConfiguration GetSqlConfiguration(string databaseConnectionStringKey)
     {
         return MsSqlConfiguration.MsSql2012
             .ConnectionString(c => c.FromConnectionStringWithKey(databaseConnectionStringKey));
