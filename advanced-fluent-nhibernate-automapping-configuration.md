@@ -1,5 +1,3 @@
-# Advanced Fluent NHibernate Automapping Configuration
-
 ## Introduction
 
 This article assumes that Fluent NHibernate is already installed and running. If you are trying to set Fluent NHibernate up for the first time, this article may be of help [Getting started with Fluent NHibernate](../getting-started-with-fluent-nhibernate.md).
@@ -8,7 +6,7 @@ This article assumes that Fluent NHibernate is already installed and running. If
 
 To tell Fluent NHibernate to scan all classes in an assembly, we start by creating a class.
 
-[code language="c#"]
+[code language="csharp"]
 
 	namespace Demo.Core.Models
 	{
@@ -19,18 +17,19 @@ To tell Fluent NHibernate to scan all classes in an assembly, we start by creati
 	        public virtual string LastName { get; set; }
 	    }
 	}
+	
 
 [/code]
 
 We then tell Fluent NHibernate to scan the assembly (typically a project in your solution) for classes to map.
 
-[code language="c#"]
+[code language="csharp"]
 
 	Fluently.Configure()
 	    .Mappings(m => m.AutoMappings
 	            .Add(AutoMap.AssemblyOf<Person>())
 	    )
-
+	
 [/code]
 
 ## Adding other classes to your project
@@ -41,7 +40,7 @@ Most of the time we will not have a project exclusively dedicated to Database Mo
 
 However, if we now add another class to our core project.
 
-[code language="c#"]
+[code language="csharp"]
 
 	using Demo.Core.Models;
 	
@@ -62,15 +61,15 @@ However, if we now add another class to our core project.
 	        }
 	    }
 	}
-
+	
 [/code]
 
 We will begin to throw a FluentNHibernate.Visitors.ValidationException.
 
-[code language="c#"]
+[code language="csharp"]
 
 	FluentNHibernate.Visitors.ValidationException : The entity 'PersonHelper' doesn't have an Id mapped. Use the Id method to map your identity property. For example: Id(x => x.Id).
-
+	
 [/code]
 
 ### The solution - DefaultAutomappingConfiguration
@@ -79,7 +78,7 @@ To resolve this exception we need to tell Fluent Nhibernate exactly which classe
 
 To do this, lets add an interface.
 
-[code language="c#"]
+[code language="csharp"]
 
 	namespace Demo.Core.Interfaces
 	{
@@ -87,7 +86,7 @@ To do this, lets add an interface.
 	    {
 	    }
 	}
-
+	
 [/code]
 
 And include it on our model.
@@ -105,12 +104,12 @@ And include it on our model.
 	        public virtual string LastName { get; set; }
 	    }
 	}
-
+	
 [/code]
 
 Now we can create DefaultAutomappingConfiguration and tell it to only map classes that implement our new interface.
 
-[code language="c#"]
+[code language="csharp"]
 
 	using System;
 	using Demo.Core.Interfaces;
@@ -127,28 +126,28 @@ Now we can create DefaultAutomappingConfiguration and tell it to only map classe
 	        }
 	    }
 	}
-
+	
 [/code]
 
 Finally, this configuration must be added to our Fluent Configuration.
 
-[code language="c#"]
+[code language="csharp"]
 
-        private static Configuration BuildConfiguration()
-        {
-            return Fluently.Configure()
-                .Database(GetSqlConfiguration("DatabaseConnectionString"))
-                .Mappings(m => m.AutoMappings
-                        .Add(AutoMap.AssemblyOf<Person>(new AutomappingConfiguration()))
-                )
-                .BuildConfiguration();
-        }
-
+    private static Configuration BuildConfiguration()
+    {
+        return Fluently.Configure()
+            .Database(GetSqlConfiguration("DatabaseConnectionString"))
+            .Mappings(m => m.AutoMappings
+                    .Add(AutoMap.AssemblyOf<Person>(new AutomappingConfiguration()))
+            )
+            .BuildConfiguration();
+    }
+	
 [/code]
 
 At this point our FluentNHibernate.Visitors.ValidationException is resolved and we can once again use our mapped models which implement our interface.
 
-[code language="c#"]
+[code language="csharp"]
 
 	using Demo.Core.Models;
 	using Demo.Infrastructure.Nhibernate;
@@ -180,5 +179,5 @@ At this point our FluentNHibernate.Visitors.ValidationException is resolved and 
 	        }
 	    }
 	} 
-
+	
 [/code]
