@@ -131,7 +131,7 @@ Now we can create DefaultAutomappingConfiguration and tell it to only map classe
 
 Finally, this configuration must be added to our Fluent Configuration.
 
-[code language="csharp"]
+[code language="csharp" highlight="6"]
 
     private static Configuration BuildConfiguration()
     {
