@@ -193,7 +193,7 @@ The completed database context is now ready to be used. Lets add a repository to
 
 	using Demo.Core.Models;
 	using NHibernate;
-
+	
 	namespace Demo.Infrastructure.Nhibernate.Repositories
 	{
 	    public class PersonRepository
@@ -209,7 +209,11 @@ The completed database context is now ready to be used. Lets add a repository to
 	        {
 	            using (ISession session = _sessionFactory.OpenSession())
 	            {
-	                session.Save(person);
+	                using (var transaction = session.BeginTransaction())
+	                {
+	                    session.Save(person);
+	                    transaction.Commit();
+	                }
 	            }
 	        }
 	    }
