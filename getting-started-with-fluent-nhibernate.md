@@ -27,7 +27,7 @@ Now add a new class to use as your NHibernate database context.
 
 ### Connection String
 
-Add you connection string to your app.config or web.config.
+Add your connection string to your app.config or web.config.
 
 [code language="xml"]
 
