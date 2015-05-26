@@ -1,6 +1,6 @@
 ## Introduction
 
-This article assumes that Fluent NHibernate is already installed and running. If you are trying to set Fluent NHibernate up for the first time, this article may be of help [Getting started with Fluent NHibernate](../getting-started-with-fluent-nhibernate.md).
+This article assumes that Fluent NHibernate is already installed and running. If you are trying to set Fluent NHibernate up for the first time, [this article may be of help](../getting-started-with-fluent-nhibernate.md).
 
 ## Example Automapping configuration
 
