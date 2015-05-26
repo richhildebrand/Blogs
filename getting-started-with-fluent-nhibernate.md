@@ -58,7 +58,7 @@ Inside this class add a method to retrieve your connection string.
 
 Build your configuration.
 
-If you are setting up Fluent Nhibernate on a existing project you may need to add a [DefaultAutomappingConfiguration](../advanced-fluent-nhibernate-automapping-configuration.md) to avoid a FluentNHibernate.Visitors.ValidationException.
+If you are setting up Fluent NHibernate on a existing project you may need to add a [DefaultAutomappingConfiguration](../advanced-fluent-nhibernate-automapping-configuration.md) to avoid a FluentNHibernate.Visitors.ValidationException.
 
 [code language="csharp"]
 
@@ -171,7 +171,7 @@ In a new empty project, add a new class to use with Fluent NHibernate. The virtu
 	
 [/code]
 
-User your migration script manager of choice to create the corresponding table in your database.
+Use your migration script manager of choice to create the corresponding table in your database.
 
 [code language="sql"]
 
