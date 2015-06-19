@@ -2,7 +2,7 @@
 
 This article will show you how to configure a primary key convention for automappings in Fluent NHibernate.
 
-If you would like to setup automapping, [this previous article](../advanced-fluent-nhibernate-automapping-configuration.md) may be of help. 
+If you would like to setup automapping, [this previous article](https://richardhildebrand.wordpress.com/2015/05/23/advanced-fluent-nhibernate-automapping-configuration/) may be of help. 
 
 ## Add a class and a table
 
@@ -24,7 +24,7 @@ First lets add a class with the primary key convention class name _Id.
 		
 [/code]
 
-Then a table matching this primary key convention.
+Then, in our database, lets add a table matching this primary key convention.
 
 [code language="sql"]
 
@@ -149,7 +149,7 @@ Lets configure our primary key convention to set the Id Column. Since above we c
 
 Now lets add the primary key configuration to our automapping configuration.
 
-[code language="csharp" highlight="7"]
+[code language="csharp" highlight="8"]
 
     private static Configuration BuildConfiguration()
     {
