@@ -1,6 +1,6 @@
 ## Introduction
 
-Recently I was having trouble getting the primary key convention in NHibernate to work. Here is the trap that I fell into.
+Recently I was having trouble getting the primary key convention in Fluent NHibernate to work. Here is the trap I fell into.
 
 ## Add a class and a table
 
@@ -15,10 +15,11 @@ I created the a table.
 		State NVARCHAR(255),
 		ZipCode NVARCHAR(255),
 	);
+	
 		
 [/code]
 
-And a corresponding class.
+Then added the corresponding class.
 
 [code language="csharp"]
 
@@ -35,12 +36,13 @@ using Demo.Core.Interfaces;
 	        public virtual string ZipCode { get; set; }
 	    }
 	}
+	
 		
 [/code]
 
 ## The Primary Key convention
 
-To allow for the primary key House_Id I used the following primary key convention.
+To allow for the primary key ```House_Id``` I used the following primary key convention.
 
 [code language="csharp"]
 
@@ -67,6 +69,7 @@ To allow for the primary key House_Id I used the following primary key conventio
 	        }
 	    }
 	}
+	
 
 [/code]
 
@@ -74,11 +77,11 @@ To allow for the primary key House_Id I used the following primary key conventio
 
 Unfortunately this configuration gave me the following error ```{"The entity 'House' doesn't have an Id mapped. Use the Id method to map your identity property. For example: Id(x => x.Id)."}```.
 
-This was because I had set my class Id property as ```public virtual int House_Id { get; set; }``` instead of correctly using ```public virtual int Id { get; set; }```.
+This was because I had set my c# Id property name as ```House_Id``` instead of correctly using ```Id```.
 
-For the Primary Key convention to be triggered the class must contain an Id property.
+For the Fluent NHibernate Primary Key convention to be triggered the class must contain an Id property.
 
-## Using another property name for a class Id.
+## Using a custom property name for a class Id.
 
 Using ```Id``` was an acceptable solution for me. However, if I did not want to change my property name to ```Id```, I could have written an automapping override to continue using ```House_Id```.
 
@@ -101,12 +104,13 @@ To create the automapping override we would add the following code.
 	        }
 	    }
 	}
+	
 
 [/code]
 
 Then to apply the automapping override we need to add it to the automapping configuration.
 
-[code language="csharp" highlight="8"]
+[code language="csharp" highlight="7"]
 
         private static Configuration BuildConfiguration()
         {
@@ -126,9 +130,9 @@ Then to apply the automapping override we need to add it to the automapping conf
 
 # Proof
 
-[code language="csharp"]
-
 Of course it is always good to confirm the new configuration works.
+
+[code language="csharp"]
 
 	using Demo.Core.Models;
 	using Demo.Infrastructure.Nhibernate;
