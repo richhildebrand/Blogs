@@ -77,7 +77,7 @@ To allow for the primary key ```House_Id``` I used the following primary key con
 
 Unfortunately this configuration gave me the following error ```{"The entity 'House' doesn't have an Id mapped. Use the Id method to map your identity property. For example: Id(x => x.Id)."}```.
 
-This was because I had set my c# Id property name as ```House_Id``` instead of correctly using ```Id```.
+This was because I had set my C# Id property name as ```House_Id``` instead of correctly using ```Id```.
 
 For the Fluent NHibernate Primary Key convention to be triggered the class must contain an Id property.
 
