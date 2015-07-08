@@ -148,7 +148,7 @@ And the HTML to bind to our new function.
 
 Please note that the parameter order is not quite what you would expect. $data represents the itemToRemove and $parent.people is the observableArray.
 
-## Conclusion
+## Summary
 
 Everything combined will appear as follows.
 
