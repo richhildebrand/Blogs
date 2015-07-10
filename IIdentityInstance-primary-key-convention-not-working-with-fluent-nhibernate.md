@@ -75,7 +75,14 @@ To allow for the primary key ```House_Id``` I used the following primary key con
 
 ## My mistake
 
-Unfortunately this configuration gave me the following error ```{"The entity 'House' doesn't have an Id mapped. Use the Id method to map your identity property. For example: Id(x => x.Id)."}```.
+Unfortunately this configuration gave me the following error:
+
+[code language="csharp"]
+
+    {"The entity 'House' doesn't have an Id mapped. Use the Id method to map your identity property. For example: Id(x => x.Id)."}
+    
+
+[/code]
 
 This was because I had set my C# Id property name as ```House_Id``` instead of correctly using ```Id```.
 
