@@ -1,5 +1,3 @@
-## How to access a network drive from the command line ##
-
 When navigating the folder direction with the command line you would typically use the change directory command.
 
 For example:
