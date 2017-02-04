@@ -1,6 +1,6 @@
 ## Introduction
 
-[Let's Encrypt](https://letsencrypt.org) provides free SSL/TSL certificates. AWS also provides free certificates, but only if you are willing to pay $20 a month to use their loadbalencer. In my case I wanted to avoid this costs and use a single EC2 instance created through elastic beanstalk.
+[Let's Encrypt](https://letsencrypt.org) provides free SSL/TSL certificates. AWS also provides free certificates, but only if you are willing to pay $20 a month to use their load balancer. In my case, I wanted to avoid this cost and use a single EC2 instance created through elastic beanstalk.
 
 
 ## Remote into your EC2 server
@@ -16,14 +16,14 @@ First, download the latest version of [ACME-posh.zip](https://github.com/ebekker
 
 Now extract the contents of the zip file to `C:\Windows\System32\WindowsPowerShell\v1.0\Modules\ACMESharp`
 
-Additionally, this install is currently missing the files `ACMESharp.Providers.IIS.dll` and `ACMESharp.Providers.IIS.pdb`. You will need to manaully aquire these files and place them in the directory`C:\Windows\System32\WindowsPowerShell\v1.0\Modules\ACMESharp`.
+Additionally, this install is currently missing the files `ACMESharp.Providers.IIS.dll` and `ACMESharp.Providers.IIS.pdb`. You will need to manually acquire these files and place them in the directory `C:\Windows\System32\WindowsPowerShell\v1.0\Modules\ACMESharp`.
 
 I was able to accomplish this by installing ACMESharp via the PowerShell Gallery on a Windows 10 machine.
 
 
 ## Download Certify GUI
 
-Now let us install the [certify GUI](https://certify.webprofusion.com/home/download) to make things a little easier. You can use ACMESharp directly with powershell, but the errors messages are a bit vague.
+Now let us install the [certify GUI](https://certify.webprofusion.com/home/download) to make things a little easier. You can use ACMESharp directly with powershell, but the error messages are a bit vague.
 
 
 ## Using Certify GUI
@@ -35,7 +35,7 @@ This can be done with four pretty quick steps
 3) Using Certify, file -> new -> Domain Certificate
 4) Using IIS Manager, add a default IIS binding for port 443.
 
-## Allow HTTPS traffic to your E2C serer
+## Allow HTTPS traffic to your E2C server
 
 Finally, create a new file, `htts.config` in your `.ebextensions` folder. It should contain the following code.
 
@@ -55,4 +55,4 @@ More information on what this does can be found [here](http://docs.aws.amazon.co
 
 While your letsencrypt certificate is free, it will need to be renewed in 90 days, but can be renewed sooner than that. My advice would be to renew it at day 60.
 
-These instructions also do not force HTTPS, I will cover that in my next post.
+Finally, these instructions do not force HTTPS. I will cover that in my next post.
