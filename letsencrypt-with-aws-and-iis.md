@@ -37,7 +37,7 @@ This can be done with four pretty quick steps
 
 ## Allow HTTPS traffic to your E2C server
 
-Finally, create a new file, `htts.config` in your `.ebextensions` folder. It should contain the following code.
+Finally, create a new file, `https.config` in your `.ebextensions` folder. It should contain the following code.
 
     Resources:
       sslSecurityGroupIngress:
