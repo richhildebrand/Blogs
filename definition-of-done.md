@@ -1,18 +1,17 @@
-A common challenge for newly emerging agile teams is how to measure their progress throughout a Sprint. Often this conversation is brought to the forefront because of a constantly shifting burndown chart. The burndown chart drops when a developer finishes a story, but rises back up when the story is reject by the QA team or the end user. 
+A common challenge for newly emerging agile teams is how to measure their progress throughout a Sprint. Often this conversation is brought to the forefront because of a constantly shifting burndown chart. The burndown chart drops when a developer finishes a story, but rises back up when the story is reject by the QA team or the end user.
 
 This often leads to a lot of confusion and excitement around the predictability of completing our Sprints on time. Soon, we find ourselves in debates where we try to determine if the feedback we have received is scope creep, and therefore should be a new story for our next Sprint, or is it really a bug, which will negatively influence our burndown chart. Worse, this additional work might prevent a timely deploy, delaying the value of our entire Sprint.
 
 If this sounds familiar, you are not alone. In fact, this is such a common issue with Scrum teams that the suggested fix, “Definition of Done” has become a core component of Scrum. Below we see a nice Scrum checklist as well as a retrospective conversation highlighting this.
 
-
 https://www.crisp.se/wp-content/uploads/2012/05/Scrum-checklist.pdf
 
-    Joe: "For this retrospective, I've brought a useful little checklist. Is there any of this stuff that we aren't doing?”
+**Joe: "For this retrospective, I've brought a useful little checklist. Is there any of this stuff that we aren't doing?”**
 
-    Lisa: "Hmmm, let's see. Well, we're certainly missing Definition of Done".
+**Lisa: "Hmmm, let's see. Well, we're certainly missing Definition of Done".**
 
-    Joe: "Well, 'Definition of Done' is listed under 'Core Scrum' so it
-    seems pretty important!
+**Joe: "Well, 'Definition of Done' is listed under 'Core Scrum' so it
+seems pretty important!**
 
 If you look around you can see a lot of debate about what the “Definition of Done” is and should be. The debate gets pretty heated at times, but the good news is that there is an easy fix. Stop doing Scrum. Instead try the under sold, under certified, version of agile software development – Kanban.
 
