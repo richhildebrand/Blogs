@@ -44,6 +44,21 @@ Now find the `ItemGroup` that relates to your App.config files. It should look s
 
 [/code]
 
+Update it to include your new App.config files. In our example that would look as follows:
+
+      <ItemGroup>
+        <None Include="App.config" />
+        <None Include="App.Debug.config">
+          <DependentUpon>App.config</DependentUpon>
+        </None>
+        <None Include="App.QA.config">
+          <DependentUpon>App.config</DependentUpon>
+        </None>
+        <None Include="App.Release.config">
+          <DependentUpon>App.config</DependentUpon>
+        </None>
+        <None Include="packages.config" />
+    </ItemGroup>
 
 ## Enable transformations
 
