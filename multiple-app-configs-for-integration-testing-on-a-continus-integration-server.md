@@ -2,7 +2,6 @@
 
 Both automated testing and continues integrations servers are essential to establishing a rapid software development pipeline. When developing in .net it is very easy to configure a continues integration server to execute `Web.config` transformations. These transformations allow you to quickly and consistently move code between development environments. However, it can be a bit tricky to set these same transformations up for our integration tests.
 
-
 ## Create your new App.config files
 
 First we need to creature our configuration files.
@@ -12,7 +11,6 @@ Go into the root folder of your test project where you will find the `App.config
 For example, we have use a `Web.Debug.config`, a `Web.QA.config`, and a `Web.Release.config` so we will create three files, `App.Debug.config`, `App.QA.config`, and `App.Release.config`.
 
 Don't worry about the content of these files for now. We will address that later on.
-
 
 ## Include your new App.config files in your .csproj
 
@@ -44,9 +42,12 @@ Now find the `ItemGroup` that relates to your App.config files. It should look s
 
 [/code]
 
+
 Update it to include your new App.config files. In our example that would look as follows:
 
-      <ItemGroup>
+[code language="xml"]
+
+	<ItemGroup>
         <None Include="App.config" />
         <None Include="App.Debug.config">
           <DependentUpon>App.config</DependentUpon>
@@ -58,7 +59,9 @@ Update it to include your new App.config files. In our example that would look a
           <DependentUpon>App.config</DependentUpon>
         </None>
         <None Include="packages.config" />
-    </ItemGroup>
+	</ItemGroup>
+
+[/code]
 
 ## Enable transformations
 
@@ -71,7 +74,6 @@ After the last `Import` tag, add the following:
       <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\Web\Microsoft.Web.Publishing.targets" />
 
 [/code]
-
 
 Directly above the closing `Project` tag, add the following:
 
