@@ -2,7 +2,7 @@
 
 While practicing Python, I stumbled across [interviewcake](https://www.interviewcake.com) which has a lot of really well explained algorithm focus questions. I highly recommed trying them out!
 
-Here is my solution to one of their question, but for maximum value you will want to subscribe to get their step by step break down.
+Here is my solution to one of their questions, but for maximum value you will want to subscribe to get their step by step break down.
 
 ## The Problem
 
