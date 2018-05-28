@@ -37,7 +37,14 @@ To get started, I decided to use the code provided in [Dan Becker's XGBoost tuto
     
 [/code]
 
-Unfortunetly I received the following error: `ModuleNotFoundError: No module named 'pandas'`. It looks like we will need to install a few modules first.
+Unfortunately I received the following error: 
+
+[code="python"]
+
+	ModuleNotFoundError: No module named 'pandas'
+[/code]
+
+It looks like we will need to install a few modules first.
 
 ## Installing pandas
 
@@ -45,11 +52,14 @@ Unfortunetly I received the following error: `ModuleNotFoundError: No module nam
 
     pip install wheel
     pip install pandas
- 
 [/code]
 
-This gets us past our pandas issue, but leaves us in a similar state for sklearn: `ModuleNotFoundError: No module named 'sklearn'`.
-    
+This gets us past our pandas issue, but leaves us in a similar state for sklearn:
+
+[code="python"]
+    ModuleNotFoundError: No module named 'sklearn'
+[/code] 
+
 ## Installing sklearn
 
 Much like pandas, sklearn has a few dependencies, so lets install them all at once.
@@ -57,20 +67,37 @@ Much like pandas, sklearn has a few dependencies, so lets install them all at on
 [code="python"]
 
     pip install -U numpy scipy scikit-learn
-
 [/code]
 
-Once again we get to move forward, but are now stuck when importing from xgboost with the error: `ModuleNotFoundError: No module named 'xgboost'`.
+Once again we get to move forward, but are now stuck when importing from `xgboost` with the error:
+
+[code="python"]
+
+    ModuleNotFoundError: No module named 'xgboost'
+[/code]
 
 ## Installing xgboost
 
-Now we might expect that `pip install xgboost` would solve our problem the same way it has before. Unfotrunetly this yields the following error: `No files/directories in C:\Users\rhildebr\AppData\Local\Temp\pip-install-blv0yelu\xgboost\pip-egg-info (from PKG-INFO)`.
+Now we might expect that `pip install xgboost` would solve our problem the same way it has before. Unfotrunetly this yields the following error: 
+
+[code="python"]
+
+    No files/directories in C:\Users\rhildebr\AppData\Local\Temp\pip-install-blv0yelu\xgboost\pip-egg-info (from PKG-INFO)`.
+  
+[/code]
 
 It looks like this one will be a bit more trickey.
 
 Since `pip` won't help us here, lets download the appropriate file from [https://www.lfd.uci.edu/~gohlke/pythonlibs](https://www.lfd.uci.edu/~gohlke/pythonlibs/#xgboost).
 
-Now we can navigate to our downloads folder and run `pip install file_we_downloaded.whl`. I had to try a few files before I was able to find the correct one for my system. The file that worked for me was `xgboost-0.71-cp36-cp36m-win32.whl` and it yielded the success message `Successfully installed xgboost-0.71`.
+Now we can navigate to our downloads folder and run: 
+
+[code="python"]
+
+    pip install file_we_downloaded.whl
+[/code] 
+
+I had to try a few files before I was able to find the correct one for my system. The file that worked for me was `xgboost-0.71-cp36-cp36m-win32.whl` and it yielded the success message `Successfully installed xgboost-0.71`.
 
 ## All done
 
