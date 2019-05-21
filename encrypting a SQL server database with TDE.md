@@ -77,6 +77,6 @@ Since our data is now protected by TDE, it is important to save our keys and cer
     TO FILE = 'C:\Backups\TDECertificate.cer'
     WITH PRIVATE KEY (
         FILE = 'C:\Backups\TDECertificate.key',
-        ENCRYPTION BY PASSWORD = 'your_encryption_key!'
+        ENCRYPTION BY PASSWORD = 'your_encryption_key'
     );
 [/code]
