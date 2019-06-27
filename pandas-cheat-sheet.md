@@ -21,6 +21,10 @@
     df = df.groupby('column_one')
     df = df.groupby(['column_one', 'column_two'])
 
+## Reset index of grouped by column
+
+    df = df.reset_index(level='grouped_by_column')
+
 ## Order by
 
     df = df.sort_values(by='column_one', ascending=False)
