@@ -39,6 +39,10 @@
         'column_three' : 'count'
     })
 
+## Rename column
+
+    df = df.rename(columns={'old_name': 'new_name'})
+
 ## For each row
 
     for index, row in df.iterrows():
