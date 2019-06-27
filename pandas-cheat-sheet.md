@@ -26,6 +26,11 @@
     df = df.sort_values(by='column_one', ascending=False)
     df = df.sort_values(by=['column_one', 'column_two'], ascending=[False, True])
 
+## Get Column Value of Row
+
+    row = game_ratings.query('column_to_find == "some_value"')
+    column_value = row.iloc[0]['column_with_value']
+
 ## Aggregate
 
     df = df.agg({
