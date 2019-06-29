@@ -64,7 +64,7 @@
 
 ## Read CSV
 
-    pd = pd.read_csv('./file_path/file_name.csv')
+    df = pd.read_csv('./file_path/file_name.csv')
 
 ## Save as CSV
 
