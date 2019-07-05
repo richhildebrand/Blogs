@@ -30,6 +30,10 @@
     df = df.sort_values(by='column_one', ascending=False)
     df = df.sort_values(by=['column_one', 'column_two'], ascending=[False, True])
 
+## Unique values in column
+
+    df['column_name'].unique()
+
 ## Get column value of row
 
     row = game_ratings.query('column_to_find == "some_value"')
