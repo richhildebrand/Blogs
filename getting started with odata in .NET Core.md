@@ -92,4 +92,4 @@ Add OData to our routes with `routes.Select().Expand().Filter().OrderBy().MaxTop
 
 ## Test OData
 
-Now we can build dynamic queries without adding further backend code. `https://localhost:PORTNUMBER/odata/YourTable?$filter=YourTable/YourColumn eq 2018&amp;$select=YourColumn&amp;$count=true&amp;$orderby=YourColumn desc`
+Now we can build dynamic queries without adding further backend code. `https://localhost:PORTNUMBER/odata/YourTable?$filter=YourTable/YourColumn eq some_value`
