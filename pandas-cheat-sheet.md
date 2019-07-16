@@ -4,6 +4,10 @@
 
     our_value = 'some_value'
     df = df.query('column_name <= @our_value')
+    
+    #working with NaN
+    df = df.query('column_name.isnull()', engine='python')
+    df = df.query('column_name.notnull()', engine='python')
 
 ## Between
 
@@ -107,5 +111,5 @@ cummin | Cumulative minimum
         'UID=db_username;'
         'PWD=db_password'
     )
-
+    
     return pd.read_sql_query(sql, conn)
