@@ -48,7 +48,8 @@
     df = df.agg({
         'column_one' : 'sum',
         'column_two' : 'max',
-        'column_three' : 'count'
+        'column_three' : 'count',
+        'column_four' : { 'new_name_one': 'min', 'new_name_two': 'count' },
     })
 
 Function | Description
