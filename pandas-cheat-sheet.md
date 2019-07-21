@@ -75,6 +75,13 @@ cumprod | Cumulative product
 cummax | Cumulative maximum
 cummin | Cumulative minimum
 
+## Shift (lead / lag)
+
+    data['next_column'] = data['column'].shift(1)
+
+    # with group by
+    data['previous_column'] = data.groupby('group_by_column')['column'].shift(-1)
+
 ## Rename column
 
     df = df.rename(columns={'old_name': 'new_name'})
