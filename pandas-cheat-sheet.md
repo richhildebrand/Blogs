@@ -6,6 +6,9 @@
     our_value = 'some_value'
     df = df.query('column_name <= @our_value')
     
+    our_column = 'column_name' 
+    df.query(f'{our_column} == @our_value')
+    
     #working with NaN
     df = df.query('column_name.isnull()', engine='python')
     df = df.query('column_name.notnull()', engine='python')
@@ -56,7 +59,7 @@
 ## Get column value of row
 
 ```python
-    row = game_ratings.query('column_to_find == "some_value"')
+    row = df.query('column_to_find == "some_value"')
     column_value = row.iloc[0]['column_with_value']
 ```
 
