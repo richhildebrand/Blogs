@@ -23,3 +23,9 @@
 ```python
     docker stop $(docker ps -aq)
 ```
+
+## List all containers
+
+```python
+    docker container ls --all
+```
