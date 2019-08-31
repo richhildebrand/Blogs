@@ -56,6 +56,12 @@
     df['column_name'].unique()
 ```
 
+## Replace value in column
+
+```python
+    df.loc[df['column'] == 'old_value', 'column'] = 'new_value'
+```
+
 ## Get column value of row
 
 ```python
@@ -73,6 +79,10 @@
         'column_four' : { 'new_name_one': 'min', 'new_name_two': 'count' },
     })
 
+    #renaming columns
+    df = df.agg(
+        new_column_name=('old_column_name', 'sum')
+    )
 ```
 
 Full list of aggregate commands
