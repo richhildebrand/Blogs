@@ -1,6 +1,6 @@
 # Docker Cheat Sheet
 
-## Build
+## Build container
 
 ```python
     docker build -t name_for_container .
@@ -10,6 +10,12 @@
 
 ```python
     docker-compose up
+```
+
+## Build all containers
+
+```python
+    docker-compose build
 ```
 
 ## Run and launch the command line
