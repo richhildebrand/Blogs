@@ -40,6 +40,10 @@
 
 ```python
     df = df.reset_index(level='grouped_by_column')
+
+    #after multiple column aggregates
+    df.columns = df.columns.droplevel(0)
+    df = df.reset_index(drop=0)
 ```
 
 ## Order by
@@ -47,7 +51,6 @@
 ```python
     df = df.sort_values(by='column_one', ascending=False)
     df = df.sort_values(by=['column_one', 'column_two'], ascending=[False, True])
-
 ```
 
 ## Unique values in column
@@ -142,6 +145,13 @@ Full list of aggregate commands
     )
 ```
 
+## Create a pivot table
+
+```python
+    pt = pd.pivot_table(df, values='values_column', index=['index_column'], columns=['column_columns'])
+    pt.reset_index(inplace=True)
+```
+
 ## Read CSV
 
 ```python
@@ -151,7 +161,7 @@ Full list of aggregate commands
 ## Save as CSV
 
 ```python
-    df.to_csv(r'./file_path/file_name.csv', index=False)
+    df.to_csv('./file_path/file_name.csv', index=False)
 ```
 
 ## Read SQL
