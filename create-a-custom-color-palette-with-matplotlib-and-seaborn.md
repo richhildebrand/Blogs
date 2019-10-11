@@ -1,6 +1,6 @@
 ## Introduction
 
-Often when creating graphs in python I have found the need to use a custom color pattern. Often this is because I want to match a sports teams colors or to match a companies brand. Whatever your need, `matplotlib` makes this fairly easy to accomplish!
+Often when creating graphs in python I have found the need to use a custom color pattern. Fortunately, `matplotlib` makes this fairly easy to accomplish!
 
 ## The full code
 
