@@ -27,6 +27,9 @@
 ```python
     values = ['value_one', 'value_two']
     df = df[df['column_name'].isin(values)]
+    
+    #is not in
+    df = df[~df['column_name'].isin(values)]
 ```
 
 ## Group by
