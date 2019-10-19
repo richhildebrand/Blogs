@@ -31,6 +31,23 @@ plt.subplots_adjust(wspace=0, hspace=0)
 ax.title.set_text('your subplot title')
 ```
 
+### Set subplot border color
+
+```python
+# set all borders and ticks to the same color
+def set_axis_colors(ax, color):
+    plt.setp(ax.spines.values(), color=color)
+    plt.setp([ax.get_xticklines(), ax.get_yticklines()], color=color)
+
+# set borders to specific color
+ax.spines['top'].set_color('#cbcbcb')
+ax.spines['right'].set_color('#cbcbcb')
+ax.spines['bottom'].set_color('#cbcbcb')
+ax.spines['left'].set_color('#cbcbcb')
+```
+
+
+
 ## Labels
 
 ### Hide a label
@@ -68,3 +85,14 @@ def draw_label_on_bar(ax, df, x_column, sort_column, sort_direction, x_format_fu
 # Example using draw_label_on_bar
 draw_label_on_bar(ax, pt, 'value_column', 'sort_column', False, x_format, 0)
 ```
+
+## Ticks
+
+### Hide ticks
+
+```python
+ax.xaxis.set_ticks_position('none') # hide only ticks, not ticks and tick labels
+ax.get_xaxis().set_ticks([]) # hides ticks and tick labels
+ax.get_xaxis().set_visible(False) # also hides axis label
+```
+
