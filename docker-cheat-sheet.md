@@ -2,36 +2,57 @@
 
 ## Build container
 
-```python
+```
     docker build -t name_for_container .
 ```
 
 ## Run
 
-```python
+```
     docker-compose up
 ```
 
 ## Build all containers
 
-```python
+```
     docker-compose build
 ```
 
 ## Run and launch the command line
 
-```python
+```
     docker run -it name_for_container sh
 ```
 
 ## Stop all running containers
 
-```python
-    docker stop $(docker ps -aq)
+```
+    docker stop $(docker ps -a)
 ```
 
 ## List all containers
 
-```python
+```
     docker container ls --all
 ```
+
+## List all images
+
+```
+    docker image ls --all
+```	
+
+## Save image to file
+
+```
+​   docker save -o filepath/filename.tar repository:tag
+```	
+
+## Load image from file
+
+```
+    docker load -i filepath/filename.tar
+```
+
+
+
