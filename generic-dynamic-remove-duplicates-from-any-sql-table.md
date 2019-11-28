@@ -17,7 +17,7 @@ CREATE PROCEDURE dbo.RemoveDuplicatesFromTable
     @table varchar(255)
 AS SET NOCOUNT ON;
 	declare @columns varchar(max)
-	select @columns = COALESCE(@columns+',' ,'') + Name
+    select @columns = COALESCE(@columns+',' ,'') + '[' + Name + ']'
 		FROM sys.columns 
 		WHERE object_id = OBJECT_ID(@table)
 
