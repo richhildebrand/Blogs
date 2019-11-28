@@ -1,20 +1,16 @@
 ## Introduction
 
-Recently I needed to populate several SQL tables from an API of questionable quality. As I was inserting over a million records over several tables, a speedy solution was essential. Since the code base was in .net core, I chose to use Boris Djurdjevic's excellent tool [EFCore.BulkExtensions]('https://github.com/borisdj/EFCore.BulkExtensions'). As past data sometimes changes without warning, I used the `BulkInsertOrUpdateOrDelete` option. This allowed me to update over 800k rows with 40+ columns in less than a minute. 
+Recently I needed to populate several SQL tables from an API of questionable quality. As I was inserting over a million records over several tables, a speedy solution was essential. Since the code base was in .net core, I chose to use Boris Djurdjevic's excellent tool [EFCore.BulkExtensions](https://github.com/borisdj/EFCore.BulkExtensions). As past data sometimes changes without warning, I used the `BulkInsertOrUpdateOrDelete` option. This allowed me to update over 800k rows with 40+ columns in less than a minute. 
 
 ## The problem
 
-Unfortunately the API sometimes provided duplicate rows (every value in every column was the same) causing the tool to throw the following exception:
-
-```
-The MERGE statement attempted to UPDATE or DELETE the same row more than once. This happens when a target row matches more than one source row. A MERGE statement cannot UPDATE/DELETE the same row of the target table multiple times. Refine the ON clause to ensure a target row matches at most one source row, or use the GROUP BY clause to group the source rows.'
-```
+Unfortunately the API sometimes provided duplicate rows (every value in every column was the same) causing the tool to throw the following exception: `The MERGE statement attempted to UPDATE or DELETE the same row more than once. This happens when a target row matches more than one source row. A MERGE statement cannot UPDATE/DELETE the same row of the target table multiple times. Refine the ON clause to ensure a target row matches at most one source row, or use the GROUP BY clause to group the source rows.'`
 
 Because of this, using `BulkInsertOrUpdateOrDelete` was no longer an option. Instead I decided to clear the previous data, use `BulkInsert` and then deleted the duplicate rows afterwards. 
 
-Given that I had 12 tables to update with 40+ columns, I didn't want to write each `group by` by hand. So instead, I created a dynamic query that will work on any table.
+Given that I had 12 tables to update with 40+ columns, I didn't want to write 12 very similar code snipits. Instead, I created a dynamic query that will work on any table.
 
-## SQL
+## The SQL
 
 ```SQL
 CREATE PROCEDURE dbo.RemoveDuplicatesFromTable
