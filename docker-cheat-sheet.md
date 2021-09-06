@@ -27,7 +27,8 @@
 ## Stop all running containers
 
 ```
-    docker stop $(docker ps -a)
+    docker stop $(docker ps -aq) #powershell or linux
+    FOR /f "tokens=*" %i IN ('docker ps -q') DO docker stop %i #windows cmd
 ```
 
 ## List all containers
@@ -40,13 +41,13 @@
 
 ```
     docker image ls --all
-```	
+```
 
 ## Save image to file
 
 ```
-​   docker save -o filepath/filename.tar repository:tag
-```	
+   docker save -o filepath/filename.tar repository:tag
+```
 
 ## Load image from file
 
